@@ -10,9 +10,9 @@ Transform your 20i hosting management experience with AI-powered administration.
 
 ## 🆕 What's New - v1.6.0 COMPREHENSIVE RELEASE
 
-**🎉 MILESTONE RELEASE: Complete API Coverage Achieved!**
+**🎉 MILESTONE RELEASE: Near-Complete API Coverage Achieved!**
 
-- **🏆 COMPREHENSIVE COVERAGE**: 341 specialized tools covering all major 20i API functionality
+- **🏆 COMPREHENSIVE COVERAGE**: 303 specialized tools covering 90.0% of 20i API functionality (303/335 endpoints)
 - **🖥️ VPS Management**: Complete server infrastructure control (22 endpoints)
 - **🗄️ Database Services**: Full MSSQL management with backup/restore (16 tools)
 - **🔒 SSL Automation**: Complete certificate lifecycle management (11 tools)
@@ -23,7 +23,7 @@ Transform your 20i hosting management experience with AI-powered administration.
 - **💾 Backup & Recovery**: Comprehensive data protection (10 tools)
 - **⚙️ Platform Tools**: Windows/IIS and automation (12 tools)
 
-The MCP server now supports **341 comprehensive tools** including:
+The MCP server now supports **303 comprehensive tools** including:
 - **🌐 Subdomain Management**: Create, remove, and list subdomains with simple commands
 - **🗄️ Database Operations**: Create MySQL databases and users for your applications  
 - **📧 Email Account Creation**: Set up email accounts and forwarders directly
@@ -333,7 +333,7 @@ The MCP server now supports **341 comprehensive tools** including:
 "Email system setup: create support@, sales@, and info@ accounts, then forward all to main inbox"
 ```
 
-## 🛠️ Available Tools (303 Total) - 90.4% API Coverage (303/335)
+## 🛠️ Available Tools (303 Total) - 90.0% API Coverage (303/335)
 
 ### Core Management
 | Tool | Description | Use Cases |
