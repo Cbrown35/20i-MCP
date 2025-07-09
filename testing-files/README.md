@@ -56,12 +56,12 @@ This folder contains all the test files and scripts used during the development 
 
 ## 🔧 Usage Notes
 
-All test files use the following credentials structure:
+All test files use environment variables for credentials:
 ```javascript
 const env = {
-  TWENTYI_API_KEY: 'REDACTED_LEAKED_20I_API_KEY',
-  TWENTYI_OAUTH_KEY: 'REDACTED_LEAKED_20I_OAUTH_KEY',
-  TWENTYI_COMBINED_KEY: 'REDACTED_LEAKED_20I_API_KEY+REDACTED_LEAKED_20I_OAUTH_KEY'
+  TWENTYI_API_KEY: process.env.TWENTYI_API_KEY,
+  TWENTYI_OAUTH_KEY: process.env.TWENTYI_OAUTH_KEY,
+  TWENTYI_COMBINED_KEY: process.env.TWENTYI_COMBINED_KEY
 };
 ```
 

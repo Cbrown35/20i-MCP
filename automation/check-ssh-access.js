@@ -8,7 +8,12 @@
 
 import axios from 'axios';
 
-const API_KEY = 'REDACTED_LEAKED_20I_API_KEY';
+const API_KEY = process.env.TWENTYI_API_KEY || process.env.TWENTYI_COMBINED_KEY;
+
+if (!API_KEY) {
+  console.error('❌ Missing required environment variable: TWENTYI_API_KEY or TWENTYI_COMBINED_KEY');
+  process.exit(1);
+}
 const PACKAGE_ID = '3302301';
 
 const authHeader = `Bearer ${Buffer.from(API_KEY).toString('base64')}`;
