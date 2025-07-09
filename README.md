@@ -333,7 +333,7 @@ The MCP server now supports **341 comprehensive tools** including:
 "Email system setup: create support@, sales@, and info@ accounts, then forward all to main inbox"
 ```
 
-## 🛠️ Available Tools (100 Total) - 36.9% API Coverage (100/271)
+## 🛠️ Available Tools (303 Total) - 90.4% API Coverage (303/335)
 
 ### Core Management
 | Tool | Description | Use Cases |

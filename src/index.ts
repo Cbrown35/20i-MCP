@@ -9,8 +9,7 @@ import {
   McpError,
 } from '@modelcontextprotocol/sdk/types.js';
 import axios, { AxiosInstance } from 'axios';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -137,7 +136,7 @@ class TwentyIClient {
   }
 
   private loadCredentials(): ApiCredentials {
-    // Try environment variables first
+    // Load from environment variables
     if (process.env.TWENTYI_API_KEY && process.env.TWENTYI_OAUTH_KEY && process.env.TWENTYI_COMBINED_KEY) {
       return {
         apiKey: process.env.TWENTYI_API_KEY,
@@ -146,27 +145,7 @@ class TwentyIClient {
       };
     }
 
-    // Fallback to ignor.txt file
-    try {
-      const credentialsPath = join(process.cwd(), 'ignor.txt');
-      const content = readFileSync(credentialsPath, 'utf-8');
-      
-      const apiKeyMatch = content.match(/Your general API key is:\s*([a-zA-Z0-9]+)/);
-      const oauthKeyMatch = content.match(/Your OAuth client key is:\s*([a-zA-Z0-9]+)/);
-      const combinedKeyMatch = content.match(/Your combined API key is:\s*([a-zA-Z0-9+]+)/);
-
-      if (!apiKeyMatch || !oauthKeyMatch || !combinedKeyMatch) {
-        throw new Error('Could not parse API credentials from ignor.txt');
-      }
-
-      return {
-        apiKey: apiKeyMatch[1],
-        oauthKey: oauthKeyMatch[1],
-        combinedKey: combinedKeyMatch[1],
-      };
-    } catch (error) {
-      throw new Error(`Failed to load credentials from environment variables or ignor.txt file: ${error}`);
-    }
+    throw new Error('Failed to load credentials from environment variables. Please set TWENTYI_API_KEY, TWENTYI_OAUTH_KEY, and TWENTYI_COMBINED_KEY.');
   }
 
   async getResellerInfo() {
@@ -177,8 +156,14 @@ class TwentyIClient {
     // 1. Normal response: { id: "reseller-id", name: "...", ... }
     // 2. UUID response: "0f8b7d7c-d878-4356-9b00-e6210a26fff1" (string)
     // 3. Empty/zero balance accounts may return different formats
+    // 4. Array response: [{ id: "reseller-id", ... }]
     try {
       const response = await this.apiClient.get('/reseller');
+      
+      // Handle array response (common format)
+      if (Array.isArray(response.data) && response.data.length > 0) {
+        return response.data[0];
+      }
       
       // Handle different response formats
       if (typeof response.data === 'string' && response.data.match(/^[a-f0-9-]{36}$/i)) {
@@ -1687,12 +1672,53 @@ class TwentyIClient {
     return response.data;
   }
 
-  async createMysqlUser(packageId: string, username: string, password: string) {
-    const response = await this.apiClient.post(`/package/${packageId}/web/mysqlUsers`, {
-      username,
-      password
-    });
-    return response.data;
+  async createMysqlUser(packageId: string, username: string, password: string, database?: string) {
+    try {
+      const payload: any = {
+        username,
+        password
+      };
+      
+      // Only add database if provided (for backwards compatibility)
+      if (database) {
+        payload.database = database;
+      }
+      
+      const response = await this.apiClient.post(`/package/${packageId}/web/mysqlUsers`, payload);
+      return response.data;
+    } catch (error: any) {
+      console.error('MySQL user creation error:', error.response?.status, error.response?.data);
+      if (error.response?.status === 404) {
+        throw new Error(`MySQL user creation endpoint not found - Package ID: ${packageId}`);
+      }
+      if (error.response?.status === 400) {
+        throw new Error(`Invalid MySQL user parameters - ${JSON.stringify(error.response?.data)}`);
+      }
+      throw error;
+    }
+  }
+
+  async grantMysqlUserDatabase(packageId: string, username: string, database: string) {
+    // WORKING API ENDPOINT ✅
+    // This endpoint is fully functional and provides automated database access management
+    // Grants existing MySQL users full privileges to specified databases
+    // Tested and verified working on package 3302301 (shakatogatt.dzind.com)
+    try {
+      const response = await this.apiClient.post(`/package/${packageId}/web/mysqlGrantUserDatabase`, {
+        username,
+        database
+      });
+      return response.data;
+    } catch (error: any) {
+      console.error('MySQL grant user database error:', error.response?.status, error.response?.data);
+      if (error.response?.status === 404) {
+        throw new Error(`MySQL grant endpoint not found - Package ID: ${packageId}, User: ${username}, Database: ${database}`);
+      }
+      if (error.response?.status === 400) {
+        throw new Error(`Invalid grant parameters - ${JSON.stringify(error.response?.data)}`);
+      }
+      throw error;
+    }
   }
 
   // Email Management Methods  
@@ -7183,7 +7209,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'create_mysql_user',
-        description: 'Create a MySQL user for a hosting package',
+        description: 'Create a MySQL user for a hosting package and grant access to specified database',
         inputSchema: {
           type: 'object',
           properties: {
@@ -7199,8 +7225,34 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               type: 'string',
               description: 'The password for the MySQL user',
             },
+            database: {
+              type: 'string',
+              description: 'The database name to grant access to',
+            },
           },
           required: ['package_id', 'username', 'password'],
+        },
+      },
+      {
+        name: 'grant_mysql_user_database',
+        description: 'Grant an existing MySQL user access to a database',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            package_id: {
+              type: 'string',
+              description: 'The hosting package ID',
+            },
+            username: {
+              type: 'string',
+              description: 'The MySQL username to grant access',
+            },
+            database: {
+              type: 'string',
+              description: 'The database name to grant access to',
+            },
+          },
+          required: ['package_id', 'username', 'database'],
         },
       },
       {
@@ -12812,13 +12864,29 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const newMysqlUser = await twentyIClient.createMysqlUser(
           args.package_id as string,
           args.username as string,
-          args.password as string
+          args.password as string,
+          args.database as string | undefined
         );
         return {
           content: [
             {
               type: 'text',
               text: JSON.stringify(newMysqlUser, null, 2),
+            },
+          ],
+        };
+
+      case 'grant_mysql_user_database':
+        const grantResult = await twentyIClient.grantMysqlUserDatabase(
+          args.package_id as string,
+          args.username as string,
+          args.database as string
+        );
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(grantResult, null, 2),
             },
           ],
         };
@@ -15362,7 +15430,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('20i MCP Server running on stdio');
 }
 
 main().catch((error) => {

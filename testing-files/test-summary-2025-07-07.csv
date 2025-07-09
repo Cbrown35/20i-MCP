@@ -1,0 +1,68 @@
+Category,Tool,Description,Status,Error,StatusCode,ResponseTime
+Core Management,get_reseller_info,Get reseller account information,PASS,"",,82
+Core Management,get_account_balance,Get account balance,PASS,"",,78
+Core Management,list_domains,List all domains,PASS,"",,80
+Core Management,get_domain_info,Get domain details,PASS,"",,76
+Core Management,get_dns_records,Get DNS records,PASS,"",,77
+Hosting Package Management,list_hosting_packages,List hosting packages,PASS,"",,76
+Hosting Package Management,get_hosting_package_info,Get package info,PASS,"",,75
+Hosting Package Management,get_hosting_package_web_info,Get web package info,PASS,"",,80
+Hosting Package Management,get_hosting_package_limits,Get package limits,PASS,"",,78
+Hosting Package Management,get_hosting_package_usage,Get package usage,PASS,"",,78
+Hosting Package Management,create_hosting_package,Create hosting package,PASS,"",,80
+Database Management,get_mysql_databases,List MySQL databases,PASS,"",,79
+Database Management,get_mysql_users,List MySQL users,PASS,"",,77
+Database Management,get_mssql_databases,List MSSQL databases,PASS,"",,77
+Database Management,create_mysql_database,Create MySQL database,PASS,"",,78
+Database Management,create_mysql_user,Create MySQL user,PASS,"",,79
+Email Management,get_email_configuration,Get email config,PASS,"",,77
+Email Management,get_mailbox_configuration,Get mailbox config,PASS,"",,78
+Email Management,get_email_forwarders,Get email forwarders,PASS,"",,78
+Email Management,get_all_email_forwarders,Get all email forwarders,PASS,"",,77
+Email Management,create_email_account,Create email account,PASS,"",,83
+Email Management,create_email_forwarder,Create email forwarder,PASS,"",,78
+Application Management,list_applications,List available applications,PASS,"",,78
+Application Management,install_application,Install application,PASS,"",,80
+Security Management,get_blocked_ip_addresses,Get blocked IPs,PASS,"",,79
+Security Management,set_blocked_ip_addresses,Set blocked IPs,PASS,"",,79
+Security Management,add_ip_block,Add IP block,PASS,"",,75
+Security Management,remove_ip_block,Remove IP block,PASS,"",,76
+Security Management,get_blocked_countries,Get blocked countries,PASS,"",,76
+Security Management,set_blocked_countries,Set blocked countries,PASS,"",,74
+Security Management,add_country_block,Add country block,PASS,"",,78
+Security Management,remove_country_block,Remove country block,PASS,"",,75
+Security Management,get_malware_scan,Get malware scan,PASS,"",,76
+Security Management,request_malware_scan,Request malware scan,PASS,"",,78
+Security Management,get_malware_report,Get malware report,PASS,"",,76
+Security Management,get_email_spam_blacklist,Get spam blacklist,PASS,"",,75
+Security Management,get_email_spam_whitelist,Get spam whitelist,PASS,"",,77
+Security Management,add_tls_certificate,Add TLS certificate,PASS,"",,79
+Security Management,renew_tls_certificate,Renew TLS certificate,PASS,"",,81
+SSL Management,get_ssl_certificates,Get SSL certificates,PASS,"",,77
+SSL Management,add_free_ssl,Add free SSL,PASS,"",,81
+SSL Management,get_force_ssl,Get Force SSL status,PASS,"",,78
+SSL Management,set_force_ssl,Set Force SSL,PASS,"",,78
+WordPress Management,is_wordpress_installed,Check WordPress installation,PASS,"",,76
+WordPress Management,reinstall_wordpress,Reinstall WordPress,PASS,"",,74
+WordPress Management,get_wordpress_settings,Get WordPress settings,PASS,"",,73
+WordPress Management,set_wordpress_settings,Set WordPress settings,PASS,"",,82
+WordPress Management,get_wordpress_version,Get WordPress version,PASS,"",,77
+WordPress Management,wordpress_search_replace,WordPress search/replace,PASS,"",,76
+WordPress Management,get_wordpress_plugins,Get WordPress plugins,PASS,"",,77
+WordPress Management,manage_wordpress_plugin,Manage WordPress plugin,PASS,"",,79
+WordPress Management,install_stackcache_plugin,Install StackCache plugin,PASS,"",,76
+WordPress Management,get_wordpress_themes,Get WordPress themes,PASS,"",,82
+WordPress Management,manage_wordpress_theme,Manage WordPress theme,PASS,"",,79
+WordPress Management,get_wordpress_users,Get WordPress users,PASS,"",,79
+WordPress Management,update_wordpress,Update WordPress,PASS,"",,84
+WordPress Management,get_wordpress_staging,Get WordPress staging,PASS,"",,79
+WordPress Management,manage_wordpress_staging,Manage WordPress staging,PASS,"",,78
+Cloud Infrastructure,list_cloud_servers,List cloud servers,PASS,"",,87
+Cloud Infrastructure,create_cloud_server,Create cloud server,PASS,"",,77
+Cloud Infrastructure,list_vps,List VPS servers,PASS,"",,76
+Cloud Infrastructure,get_vps_info,Get VPS info,PASS,"",,76
+Cloud Infrastructure,list_managed_vps,List managed VPS,PASS,"",,80
+Cloud Infrastructure,get_managed_vps_info,Get managed VPS info,PASS,"",,80
+Statistics,get_bandwidth_stats,Get bandwidth stats,PASS,"",,85
+Statistics,get_disk_usage,Get disk usage,PASS,"",,81
+Statistics,get_access_logs,Get access logs,PASS,"",,81

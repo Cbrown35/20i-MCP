@@ -1,0 +1,878 @@
+{
+  "timestamp": "2025-07-07T01:31:16.154Z",
+  "summary": {
+    "total": 67,
+    "passed": 67,
+    "failed": 0,
+    "errors": {}
+  },
+  "categories": {
+    "Core Management": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "get_reseller_info",
+          "description": "Get reseller account information",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 82,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "get_account_balance",
+          "description": "Get account balance",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "list_domains",
+          "description": "List all domains",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 80,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "get_domain_info",
+          "description": "Get domain details",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_dns_records",
+          "description": "Get DNS records",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Hosting Package Management": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "list_hosting_packages",
+          "description": "List hosting packages",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "get_hosting_package_info",
+          "description": "Get package info",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 75,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_hosting_package_web_info",
+          "description": "Get web package info",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 80,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_hosting_package_limits",
+          "description": "Get package limits",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_hosting_package_usage",
+          "description": "Get package usage",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "create_hosting_package",
+          "description": "Create hosting package",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 80,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Database Management": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "get_mysql_databases",
+          "description": "List MySQL databases",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_mysql_users",
+          "description": "List MySQL users",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_mssql_databases",
+          "description": "List MSSQL databases",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "create_mysql_database",
+          "description": "Create MySQL database",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "create_mysql_user",
+          "description": "Create MySQL user",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Email Management": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "get_email_configuration",
+          "description": "Get email config",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_mailbox_configuration",
+          "description": "Get mailbox config",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_email_forwarders",
+          "description": "Get email forwarders",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_all_email_forwarders",
+          "description": "Get all email forwarders",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "create_email_account",
+          "description": "Create email account",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 83,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "create_email_forwarder",
+          "description": "Create email forwarder",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Application Management": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "list_applications",
+          "description": "List available applications",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "install_application",
+          "description": "Install application",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 80,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Security Management": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "get_blocked_ip_addresses",
+          "description": "Get blocked IPs",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "set_blocked_ip_addresses",
+          "description": "Set blocked IPs",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "add_ip_block",
+          "description": "Add IP block",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 75,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "remove_ip_block",
+          "description": "Remove IP block",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_blocked_countries",
+          "description": "Get blocked countries",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "set_blocked_countries",
+          "description": "Set blocked countries",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 74,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "add_country_block",
+          "description": "Add country block",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "remove_country_block",
+          "description": "Remove country block",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 75,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_malware_scan",
+          "description": "Get malware scan",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "request_malware_scan",
+          "description": "Request malware scan",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_malware_report",
+          "description": "Get malware report",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_email_spam_blacklist",
+          "description": "Get spam blacklist",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 75,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_email_spam_whitelist",
+          "description": "Get spam whitelist",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "add_tls_certificate",
+          "description": "Add TLS certificate",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "renew_tls_certificate",
+          "description": "Renew TLS certificate",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 81,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "SSL Management": {
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "get_ssl_certificates",
+          "description": "Get SSL certificates",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "add_free_ssl",
+          "description": "Add free SSL",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 81,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_force_ssl",
+          "description": "Get Force SSL status",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "set_force_ssl",
+          "description": "Set Force SSL",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "WordPress Management": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "is_wordpress_installed",
+          "description": "Check WordPress installation",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "reinstall_wordpress",
+          "description": "Reinstall WordPress",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 74,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_wordpress_settings",
+          "description": "Get WordPress settings",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 73,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "set_wordpress_settings",
+          "description": "Set WordPress settings",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 82,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_wordpress_version",
+          "description": "Get WordPress version",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "wordpress_search_replace",
+          "description": "WordPress search/replace",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_wordpress_plugins",
+          "description": "Get WordPress plugins",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "manage_wordpress_plugin",
+          "description": "Manage WordPress plugin",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "install_stackcache_plugin",
+          "description": "Install StackCache plugin",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_wordpress_themes",
+          "description": "Get WordPress themes",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 82,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "manage_wordpress_theme",
+          "description": "Manage WordPress theme",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_wordpress_users",
+          "description": "Get WordPress users",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "update_wordpress",
+          "description": "Update WordPress",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 84,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_wordpress_staging",
+          "description": "Get WordPress staging",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 79,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "manage_wordpress_staging",
+          "description": "Manage WordPress staging",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 78,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Cloud Infrastructure": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "list_cloud_servers",
+          "description": "List cloud servers",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 87,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "create_cloud_server",
+          "description": "Create cloud server",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 77,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "list_vps",
+          "description": "List VPS servers",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "get_vps_info",
+          "description": "Get VPS info",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 76,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "list_managed_vps",
+          "description": "List managed VPS",
+          "expectError": false,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 80,
+          "output": "",
+          "stderr": ""
+        },
+        {
+          "tool": "get_managed_vps_info",
+          "description": "Get managed VPS info",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 80,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    },
+    "Statistics": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "tests": [
+        {
+          "tool": "get_bandwidth_stats",
+          "description": "Get bandwidth stats",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 85,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_disk_usage",
+          "description": "Get disk usage",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 81,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        },
+        {
+          "tool": "get_access_logs",
+          "description": "Get access logs",
+          "expectError": true,
+          "success": true,
+          "error": null,
+          "statusCode": null,
+          "responseTime": 81,
+          "output": "",
+          "stderr": "",
+          "unexpected": "Expected error but got success"
+        }
+      ]
+    }
+  }
+}

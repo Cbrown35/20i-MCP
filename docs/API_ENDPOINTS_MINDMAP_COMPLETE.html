@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20i API Endpoints Complete Mind Map - All 32 Missing Endpoints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .mindmap {
+            position: relative;
+            width: 1500px;
+            height: 1200px;
+            margin: 0 auto;
+            background: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: visible;
+        }
+        
+        .center-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .category-node {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2196F3, #1565C0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .subcategory {
+            position: absolute;
+            padding: 6px 10px;
+            background: #FF9800;
+            color: white;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            white-space: nowrap;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .missing {
+            background: #F44336 !important;
+        }
+        
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin: 0 20px 10px 0;
+            vertical-align: middle;
+        }
+        
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .legend h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .missing-count {
+            background: #FF5722;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>20i API Endpoints Complete Mind Map</h1>
+        <p class="subtitle">All 32 Missing Endpoints Shown - 303/335 implemented endpoints (90.4% coverage)</p>
+        
+        <div class="mindmap" id="mindmap">
+            <!-- Center node -->
+            <div class="center-node">
+                20i API<br>Endpoints<br><small>303/335</small>
+            </div>
+            
+            <!-- DOMAINS Category (top) -->
+            <div class="category-node" style="top: 80px; left: 690px;">
+                Domains
+                <div class="missing-count">1</div>
+            </div>
+            <!-- Domains implemented -->
+            <div class="subcategory" style="top: 30px; left: 580px;">Register & Transfer</div>
+            <div class="subcategory" style="top: 30px; left: 780px;">Renewal & Expiry</div>
+            <div class="subcategory" style="top: 50px; left: 580px;">Check Availability</div>
+            <div class="subcategory" style="top: 50px; left: 780px;">Domain Management</div>
+            <!-- Domains missing -->
+            <div class="subcategory missing" style="top: 10px; left: 680px;">Domain Locking Features</div>
+            
+            <!-- SSL Category (top-right) -->
+            <div class="category-node" style="top: 180px; left: 950px;">
+                SSL
+            </div>
+            <!-- SSL implemented -->
+            <div class="subcategory" style="top: 130px; left: 1050px;">Certificates Purchase</div>
+            <div class="subcategory" style="top: 150px; left: 1050px;">Install & Renew</div>
+            <div class="subcategory" style="top: 170px; left: 1050px;">SSL Management</div>
+            <div class="subcategory" style="top: 230px; left: 1050px;">Certificate Status</div>
+            
+            <!-- HOSTING Category (right) -->
+            <div class="category-node" style="top: 400px; left: 1100px;">
+                Hosting
+                <div class="missing-count">7</div>
+            </div>
+            <!-- Hosting implemented -->
+            <div class="subcategory" style="top: 350px; left: 1200px;">Package Management</div>
+            <div class="subcategory" style="top: 370px; left: 1200px;">FTP & File Manager</div>
+            <div class="subcategory" style="top: 390px; left: 1200px;">CDN</div>
+            <div class="subcategory" style="top: 410px; left: 1200px;">Web Statistics</div>
+            <div class="subcategory" style="top: 430px; left: 1200px;">Email Management</div>
+            <div class="subcategory" style="top: 450px; left: 1200px;">Backup & Restore</div>
+            <!-- Hosting missing -->
+            <div class="subcategory missing" style="top: 330px; left: 1350px;">Timeline Backup Management</div>
+            <div class="subcategory missing" style="top: 350px; left: 1350px;">Package Timeline Backups</div>
+            <div class="subcategory missing" style="top: 370px; left: 1350px;">Mailbox Timeline Backups</div>
+            <div class="subcategory missing" style="top: 390px; left: 1350px;">WordPress Timeline Backups</div>
+            <div class="subcategory missing" style="top: 410px; left: 1350px;">Database Timeline Backups</div>
+            <div class="subcategory missing" style="top: 430px; left: 1350px;">File Timeline Backups</div>
+            <div class="subcategory missing" style="top: 450px; left: 1350px;">Advanced Backup Features</div>
+            
+            <!-- DATABASES Category (bottom-right) -->
+            <div class="category-node" style="top: 650px; left: 950px;">
+                Databases
+            </div>
+            <!-- Databases implemented -->
+            <div class="subcategory" style="top: 700px; left: 1050px;">MySQL Creation</div>
+            <div class="subcategory" style="top: 720px; left: 1050px;">User Management</div>
+            <div class="subcategory" style="top: 740px; left: 1050px;">Access Control</div>
+            <div class="subcategory" style="top: 760px; left: 1050px;">Database Operations</div>
+            
+            <!-- DNS Category (bottom) -->
+            <div class="category-node" style="top: 800px; left: 690px;">
+                DNS
+                <div class="missing-count">2</div>
+            </div>
+            <!-- DNS implemented -->
+            <div class="subcategory" style="top: 850px; left: 580px;">Records CRUD</div>
+            <div class="subcategory" style="top: 870px; left: 580px;">Zone Management</div>
+            <div class="subcategory" style="top: 850px; left: 780px;">DNS Configuration</div>
+            <div class="subcategory" style="top: 870px; left: 780px;">Domain Zones</div>
+            <!-- DNS missing -->
+            <div class="subcategory missing" style="top: 890px; left: 650px;">Advanced DNS Features</div>
+            <div class="subcategory missing" style="top: 910px; left: 650px;">DNS Zone Restoration</div>
+            
+            <!-- RESELLER Category (bottom-left) -->
+            <div class="category-node" style="top: 650px; left: 430px;">
+                Reseller
+                <div class="missing-count">8</div>
+            </div>
+            <!-- Reseller implemented -->
+            <div class="subcategory" style="top: 700px; left: 250px;">Stack User Management</div>
+            <div class="subcategory" style="top: 720px; left: 250px;">Package Branding</div>
+            <div class="subcategory" style="top: 740px; left: 250px;">Allowances</div>
+            <div class="subcategory" style="top: 760px; left: 250px;">Reseller Tools</div>
+            <!-- Reseller missing -->
+            <div class="subcategory missing" style="top: 600px; left: 150px;">updateStackUserPackageAllowance</div>
+            <div class="subcategory missing" style="top: 620px; left: 150px;">packageTypeBrand</div>
+            <div class="subcategory missing" style="top: 640px; left: 150px;">explicitStackUserCheck</div>
+            <div class="subcategory missing" style="top: 660px; left: 150px;">splitPackage</div>
+            <div class="subcategory missing" style="top: 680px; left: 150px;">ftpLocks</div>
+            <div class="subcategory missing" style="top: 700px; left: 150px;">addWeb to Allowance</div>
+            <div class="subcategory missing" style="top: 720px; left: 150px;">update Allowance</div>
+            <div class="subcategory missing" style="top: 740px; left: 150px;">get Allowance Info</div>
+            
+            <!-- VPS Category (left) -->
+            <div class="category-node" style="top: 400px; left: 280px;">
+                VPS
+                <div class="missing-count">7</div>
+            </div>
+            <!-- VPS implemented -->
+            <div class="subcategory" style="top: 350px; left: 80px;">Rebuild OS Images</div>
+            <div class="subcategory" style="top: 370px; left: 80px;">Addons Management</div>
+            <div class="subcategory" style="top: 390px; left: 80px;">IP Management</div>
+            <div class="subcategory" style="top: 410px; left: 80px;">VPS Configuration</div>
+            <div class="subcategory" style="top: 430px; left: 80px;">Resource Management</div>
+            <div class="subcategory" style="top: 450px; left: 80px;">VPS Operations</div>
+            <!-- VPS missing -->
+            <div class="subcategory missing" style="top: 330px; left: 20px;">Add IPv6 Address</div>
+            <div class="subcategory missing" style="top: 350px; left: 20px;">VPS Limits</div>
+            <div class="subcategory missing" style="top: 370px; left: 20px;">Rebuild OS List</div>
+            <div class="subcategory missing" style="top: 390px; left: 20px;">Addon Info</div>
+            <div class="subcategory missing" style="top: 410px; left: 20px;">Lock VNC</div>
+            <div class="subcategory missing" style="top: 430px; left: 20px;">Unlock VNC</div>
+            <div class="subcategory missing" style="top: 450px; left: 20px;">VNC Management</div>
+            
+            <!-- WEBSITE TURBO Category (top-left) -->
+            <div class="category-node" style="top: 180px; left: 430px;">
+                Website<br>Turbo
+                <div class="missing-count">7</div>
+            </div>
+            <!-- Website Turbo implemented -->
+            <div class="subcategory" style="top: 130px; left: 250px;">Enable/Disable</div>
+            <div class="subcategory" style="top: 150px; left: 250px;">Settings & Usage</div>
+            <div class="subcategory" style="top: 170px; left: 250px;">Turbo Configuration</div>
+            <div class="subcategory" style="top: 230px; left: 250px;">Performance Stats</div>
+            <!-- Website Turbo missing -->
+            <div class="subcategory missing" style="top: 100px; left: 150px;">Turbo Advanced Settings</div>
+            <div class="subcategory missing" style="top: 120px; left: 150px;">Cache Management</div>
+            <div class="subcategory missing" style="top: 140px; left: 150px;">Performance Optimization</div>
+            <div class="subcategory missing" style="top: 160px; left: 150px;">Turbo Analytics</div>
+            <div class="subcategory missing" style="top: 180px; left: 150px;">Speed Configuration</div>
+            <div class="subcategory missing" style="top: 200px; left: 150px;">Turbo Monitoring</div>
+            <div class="subcategory missing" style="top: 220px; left: 150px;">Advanced Turbo Features</div>
+        </div>
+        
+        <div class="legend">
+            <h3>Legend:</h3>
+            <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);"></span>
+                Root Node (20i API)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #2196F3, #1565C0);"></span>
+                Main Categories
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #FF9800;"></span>
+                Implemented Features (303 total)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #F44336;"></span>
+                Missing Features (32 total)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #FF5722;"></span>
+                Missing Count Badge
+            </div>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
+            <h4 style="margin-top: 0; color: #856404;">Missing Endpoints Summary:</h4>
+            <p style="color: #856404; margin-bottom: 0;">
+                <strong>Total Missing: 32 endpoints</strong><br>
+                • Reseller: 8 endpoints (updateStackUserPackageAllowance, packageTypeBrand, explicitStackUserCheck, splitPackage, ftpLocks, addWeb, update allowance, get allowance info)<br>
+                • VPS: 7 endpoints (IPv6 address, limits, rebuild OS list, addon info, lock/unlock VNC, VNC management)<br>
+                • Website Turbo: 7 endpoints (advanced settings, cache management, performance optimization, analytics, speed config, monitoring, advanced features)<br>
+                • Hosting/Timeline Backups: 7 endpoints (timeline backup management for packages, mailboxes, WordPress, databases, files, advanced backup features)<br>
+                • DNS: 2 endpoints (advanced DNS features, zone restoration)<br>
+                • Domains: 1 endpoint (domain locking features)
+            </p>
+        </div>
+    </div>
+</body>
+</html>

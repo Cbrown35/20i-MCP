@@ -13,7 +13,7 @@
   },
   "keywords": [
     "mcp",
-    "model-context-protocol", 
+    "model-context-protocol",
     "20i",
     "hosting",
     "ai",
@@ -43,7 +43,11 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "basic-ftp": "^5.0.5",
+    "node-html-parser": "^7.0.1",
+    "node-ssh": "^13.2.1",
+    "puppeteer": "^24.12.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

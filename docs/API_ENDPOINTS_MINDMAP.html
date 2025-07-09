@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20i API Endpoints Mind Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .mindmap {
+            position: relative;
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+            background: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+        
+        .center-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .category-node {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #2196F3, #1565C0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-node:hover {
+            transform: scale(1.1);
+        }
+        
+        .subcategory {
+            position: absolute;
+            padding: 8px 12px;
+            background: #FF9800;
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+        
+        .missing {
+            background: #F44336 !important;
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: #999;
+            transform-origin: left center;
+            z-index: 1;
+        }
+        
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin: 0 20px 10px 0;
+            vertical-align: middle;
+        }
+        
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .legend h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>20i API Endpoints Mind Map</h1>
+        <p class="subtitle">Interactive visualization of 303/335 implemented endpoints (90.4% coverage)</p>
+        
+        <div class="mindmap" id="mindmap">
+            <!-- Center node -->
+            <div class="center-node">
+                20i API<br>Endpoints
+            </div>
+            
+            <!-- Category nodes positioned in a circle -->
+            <div class="category-node" style="top: 50px; left: 550px;">Domains</div>
+            <div class="category-node" style="top: 150px; left: 750px;">SSL</div>
+            <div class="category-node" style="top: 350px; left: 800px;">Hosting</div>
+            <div class="category-node" style="top: 550px; left: 750px;">Databases</div>
+            <div class="category-node" style="top: 650px; left: 550px;">DNS</div>
+            <div class="category-node" style="top: 550px; left: 350px;">Reseller</div>
+            <div class="category-node" style="top: 350px; left: 300px;">VPS</div>
+            <div class="category-node" style="top: 150px; left: 350px;">Website Turbo</div>
+            
+            <!-- Domains subcategories -->
+            <div class="subcategory" style="top: 20px; left: 450px;">Register & Transfer</div>
+            <div class="subcategory" style="top: 20px; left: 600px;">Renewal & Expiry</div>
+            <div class="subcategory" style="top: 80px; left: 450px;">Check Availability</div>
+            <div class="subcategory missing" style="top: 80px; left: 600px;">Domain Locking (missing)</div>
+            
+            <!-- SSL subcategories -->
+            <div class="subcategory" style="top: 120px; left: 850px;">Certificates Purchase</div>
+            <div class="subcategory" style="top: 180px; left: 850px;">Install & Renew</div>
+            
+            <!-- Hosting subcategories -->
+            <div class="subcategory" style="top: 320px; left: 900px;">Package Management</div>
+            <div class="subcategory" style="top: 360px; left: 900px;">FTP & File Manager</div>
+            <div class="subcategory" style="top: 400px; left: 900px;">CDN</div>
+            <div class="subcategory missing" style="top: 320px; left: 1050px;">Timeline Backups (missing)</div>
+            
+            <!-- Databases subcategories -->
+            <div class="subcategory" style="top: 580px; left: 850px;">MySQL</div>
+            <div class="subcategory" style="top: 620px; left: 850px;">User Creation & Access</div>
+            
+            <!-- DNS subcategories -->
+            <div class="subcategory" style="top: 680px; left: 450px;">Records CRUD</div>
+            <div class="subcategory" style="top: 680px; left: 600px;">Zone Management</div>
+            <div class="subcategory missing" style="top: 720px; left: 500px;">Advanced DNS (missing)</div>
+            
+            <!-- Reseller subcategories -->
+            <div class="subcategory" style="top: 520px; left: 150px;">Manage Stack Users</div>
+            <div class="subcategory" style="top: 560px; left: 150px;">Package Branding</div>
+            <div class="subcategory" style="top: 600px; left: 150px;">Allowances & Splitting</div>
+            <div class="subcategory missing" style="top: 520px; left: 20px;">8 unimplemented endpoints</div>
+            
+            <!-- VPS subcategories -->
+            <div class="subcategory" style="top: 320px; left: 100px;">Rebuild OS Images</div>
+            <div class="subcategory" style="top: 360px; left: 100px;">Addons & IP Mgmt</div>
+            <div class="subcategory missing" style="top: 400px; left: 100px;">Lock & Unlock VNC (missing)</div>
+            
+            <!-- Website Turbo subcategories -->
+            <div class="subcategory" style="top: 120px; left: 150px;">Enable/Disable</div>
+            <div class="subcategory" style="top: 180px; left: 150px;">Settings & Usage</div>
+            <div class="subcategory missing" style="top: 120px; left: 20px;">Some endpoints (missing)</div>
+        </div>
+        
+        <div class="legend">
+            <h3>Legend:</h3>
+            <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);"></span>
+                Root Node (20i API)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #2196F3, #1565C0);"></span>
+                Main Categories
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #FF9800;"></span>
+                Implemented Features
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #F44336;"></span>
+                Missing/Partial Features
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects and interactions
+        document.querySelectorAll('.category-node').forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            node.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        document.querySelectorAll('.subcategory').forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.zIndex = '20';
+            });
+            
+            node.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = 'auto';
+            });
+        });
+    </script>
+</body>
+</html>

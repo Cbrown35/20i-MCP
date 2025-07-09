@@ -15,6 +15,21 @@ ignor.txt
 .env.development.local
 .env.test.local
 .env.production.local
+.credentials
+.secrets
+*.credentials
+*.secrets
+**/secrets/
+**/config/*.local.*
+
+# Testing files with potential credentials
+test-*-local.js
+*-credentials.js
+*-secrets.js
+
+# Temporary automation files
+temp-*.js
+automation-*.js
 
 # Reference materials (should not be committed)
 gitignor_ref_folder/

@@ -1,0 +1,341 @@
+                name: {
+            backup_name: {
+            brand_name: {
+            brand_name: {
+            domain_name: {
+            domain_name: {
+            domain_name: {
+            filename: {
+            hostname: {
+            hostname: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            name: {
+            new_name: {
+            new_package_name: {
+            option_name: {
+            plugin_name: {
+            template_name: {
+            theme_name: {
+            theme_name: {
+            username: {
+            username: {
+            username: {
+            username: {
+            username: {
+activate_package
+activate_vps
+activate_vps
+add_cdn_feature
+add_country_block
+add_free_ssl
+add_ip_block
+add_mssql_user
+add_stack_user_package_allowance
+add_tls_certificate
+add_vps_ipv6_address
+assign_mssql_to_package
+assign_website_turbo
+bulk_add_cdn_features
+change_vps_password
+change_vps_root_password
+clone_package_from_allowance
+clone_wordpress_staging
+configure_advanced_dns_records
+configure_advanced_spam_filtering
+configure_alert_system
+configure_dns_security_monitoring
+configure_dns_templates
+configure_dnssec
+configure_email_archiving
+configure_email_compliance_settings
+configure_email_routing
+configure_email_security_policies
+configure_nominet_branding
+configure_package_branding
+configure_password_policies
+configure_premium_mailbox
+create_cloud_server
+create_email_account
+create_email_forwarder
+create_ftp_user
+create_hosting_package
+create_mssql_database
+create_multisite_backup
+create_mysql_database
+create_mysql_user
+create_scheduled_task
+create_snapshot
+create_subdomain
+deactivate_package
+deactivate_vps
+deactivate_vps
+delete_application
+delete_cdn_security_headers
+delete_easy_builder_instance
+delete_mssql_database
+delete_package
+deploy_application
+enforce_security_compliance
+generate_sitemap
+generate_webmail_url
+get_access_and_error_logs
+get_access_logs
+get_account_balance
+get_advanced_whois_management
+get_all_email_forwarders
+get_audit_trail_report
+get_bandwidth_stats
+get_blocked_countries
+get_blocked_ip_addresses
+get_cache_report
+get_cdn_feature_groups
+get_cdn_options
+get_cdn_security_headers
+get_cdn_stats
+get_cdn_traffic_distribution
+get_current_php_version
+get_database_backups
+get_directory_indexing_status
+get_disk_usage
+get_disk_usage_report
+get_dkim_signature
+get_dmarc_policy
+get_dns_analytics
+get_dns_records
+get_dns_troubleshooting_tools
+get_domain_analytics
+get_domain_auth_code
+get_domain_info
+get_domain_portfolio_management
+get_domain_transfer_status
+get_domain_verification_status
+get_domain_whois
+get_easy_builder_instances
+get_easy_builder_sso
+get_easy_builder_themes
+get_email_autoresponder
+get_email_backup_status
+get_email_configuration
+get_email_delivery_analytics
+get_email_domain_configuration
+get_email_forwarders
+get_email_performance_metrics
+get_email_quota_usage
+get_email_reputation_score
+get_email_spam_blacklist
+get_email_spam_blacklist
+get_email_spam_whitelist
+get_email_spam_whitelist
+get_email_statistics
+get_email_stats
+get_email_usage_reports
+get_epp_code_management
+get_error_logs
+get_file_permission_recommendations
+get_force_ssl
+get_force_ssl_status
+get_hosting_package_info
+get_hosting_package_limits
+get_hosting_package_usage
+get_hosting_package_web_info
+get_installed_applications
+get_installed_software
+get_mailbox_backups
+get_mailbox_configuration
+get_malware_report
+get_malware_scan
+get_malware_scan_objects
+get_managed_vps_details
+get_managed_vps_info
+get_managed_vps_limits
+get_mssql_backup_info
+get_mssql_database_details
+get_mssql_databases
+get_mssql_snapshot_jobs
+get_mysql_databases
+get_mysql_users
+get_oneclick_applications
+get_package_mssql_databases
+get_performance_monitoring
+get_php_config
+get_php_config_options
+get_php_versions
+get_php_versions
+get_reseller_info
+get_resource_usage_analytics
+get_scheduled_tasks
+get_security_event_logs
+get_security_policy_status
+get_snapshot_jobs
+get_ssl_certificate_status
+get_ssl_certificates
+get_stack_user_package_allowance
+get_stackcache_settings
+get_stackcache_status
+get_timeline_backup_overview
+get_timeline_backups
+get_vps_addon
+get_vps_available_os
+get_vps_backups
+get_vps_backups
+get_vps_cpanel_access
+get_vps_details
+get_vps_disks
+get_vps_disks
+get_vps_info
+get_vps_info
+get_vps_ip_addresses
+get_vps_limits
+get_vps_limits
+get_vps_name
+get_vps_operating_systems
+get_vps_reverse_dns
+get_vps_vnc_access
+get_vps_vnc_info
+get_web_backups
+get_website_builder_sso
+get_windows_configuration
+get_wordpress_plugins
+get_wordpress_settings
+get_wordpress_staging
+get_wordpress_staging
+get_wordpress_themes
+get_wordpress_users
+get_wordpress_version
+install_application
+install_easy_builder_instance
+install_external_ssl_certificate
+install_stackcache_plugin
+is_wordpress_installed
+list_applications
+list_backup_jobs
+list_cloud_servers
+list_domains
+list_ftp_users
+list_hosting_packages
+list_managed_vps
+list_managed_vps
+list_mssql_databases
+list_multisite_backups
+list_snapshots
+list_ssl_certificates
+list_subdomains
+list_timeline_storage
+list_vps
+list_vps
+list_vps
+list_vps_backups
+lock_vps_vnc
+lock_vps_vnc
+manage_directories
+manage_dns_api_access
+manage_dns_backup_restore
+manage_domain_bulk_operations
+manage_domain_privacy_control
+manage_domain_transfer_operations
+manage_domain_verification_systems
+manage_ssh_key_rotation
+manage_virtual_nameservers
+manage_wordpress_plugin
+manage_wordpress_staging
+manage_wordpress_theme
+optimize_dns_performance
+order_mssql_database
+order_premium_mailbox
+order_ssl_certificate
+order_vps
+order_website_turbo_credits
+perform_dns_bulk_operations
+precheck_ssl_renewal
+purge_cdn_cache
+reboot_vps
+reboot_vps
+rebuild_vps
+rebuild_vps
+recycle_application_pool
+register_domain
+reinstall_software
+reinstall_wordpress
+remove_country_block
+remove_ip_block
+remove_mssql_user
+remove_ssl_certificates
+remove_subdomain
+renew_mssql_database
+renew_premium_mailbox
+renew_ssl_certificate
+renew_tls_certificate
+renew_vps
+request_disk_usage_report
+request_malware_scan
+resend_domain_verification_email
+resend_ssl_approval_email
+reset_managed_vps_profile
+restore_database_snapshot
+restore_ftp_backup
+restore_mailbox_snapshot
+restore_mssql_snapshot
+restore_snapshot
+restore_web_snapshot
+restore_web_snapshot
+run_malware_scan_advanced
+search_domains
+set_blocked_countries
+set_blocked_ip_addresses
+set_directory_index
+set_directory_indexing
+set_dkim_signature
+set_dmarc_policy
+set_domain_transfer_lock
+set_easy_builder_theme
+set_email_domain_alias
+set_file_permissions
+set_force_ssl
+set_force_ssl
+set_managed_vps_profile
+set_php_version
+set_php_version
+set_stackcache_policy
+set_vps_name
+set_wordpress_settings
+setup_third_party_dns_integration
+shutdown_vps
+split_package
+start_vps
+start_vps
+stop_vps
+take_database_snapshot
+take_mailbox_snapshot
+take_mssql_snapshot
+take_web_snapshot
+take_web_snapshot
+test_scheduled_task
+toggle_free_ssl
+transfer_domain
+unlock_vps_vnc
+unlock_vps_vnc
+update_application_environment
+update_cdn_security_headers
+update_dns_record
+update_email_spam_settings
+update_mssql_user_password
+update_package_allowance
+update_php_config
+update_stack_user_package_allowance
+update_vps_backup
+update_vps_backups
+update_vps_name
+update_vps_reverse_dns
+update_windows_configuration
+update_wordpress
+wordpress_search_replace
