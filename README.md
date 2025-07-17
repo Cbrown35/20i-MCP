@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/cbrown35-20i-mcp-badge.png)](https://mseep.ai/app/cbrown35-20i-mcp)
+
 # 20i MCP Server 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
