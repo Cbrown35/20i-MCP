@@ -17,17 +17,21 @@ tsx src/index.ts   # Alternative development command
 
 ### Testing & Analysis
 ```bash
+npm test                       # Run Jest test suite
+npm run test:watch             # Run tests in watch mode for development
+npm run test:coverage          # Run tests with coverage reporting
 scripts/check-api-coverage.sh  # Analyze API coverage and identify gaps
-npm test                       # Run test suite (if configured)
 ```
 
 ## Core Architecture
 
 ### Main Components
-- **TwentyIClient Class**: Centralized API client with comprehensive error handling and response validation
-- **MCP Server Instance**: Single file implementation in `src/index.ts` (15,437 lines)
+- **TwentyIClient Class**: Centralized API client in `src/core/client.ts` with comprehensive error handling and response validation
+- **MCP Server Instance**: Main implementation in `src/index.ts` with 303 unique tools
+- **Modular Architecture**: Core functionality organized in `src/core/` (client, types, validation, errors) and feature modules in `src/modules/` (domains, packages)
 - **Tool Definitions**: 303 unique tools covering hosting, domains, WordPress, CDN, security, and database operations
 - **Request Handlers**: Two main handlers for `ListTools` and `CallTool` operations
+- **Validation System**: Comprehensive input validation utilities in `src/core/validation.ts`
 
 ### Authentication & Security
 - **Environment Variables Required**: `TWENTYI_API_KEY`, `TWENTYI_OAUTH_KEY`, `TWENTYI_COMBINED_KEY`
@@ -46,8 +50,10 @@ const response = await this.apiClient.get(`/endpoint/${id}`, {
 ## Technology Stack
 - **Framework**: @modelcontextprotocol/sdk for MCP implementation
 - **HTTP Client**: axios with response interceptors for error handling
-- **Language**: TypeScript with strict mode, ES2022 target
+- **Language**: TypeScript with strict mode, ES2022 target, ESNext modules
+- **Testing**: Jest with TypeScript preset, ESM support, coverage reporting
 - **Additional Tools**: basic-ftp, node-ssh, puppeteer for automation scenarios
+- **Module System**: Native ES modules with TypeScript compilation
 
 ## Key Development Patterns
 
@@ -64,9 +70,12 @@ const response = await this.apiClient.get(`/endpoint/${id}`, {
 
 ## File Structure & Key Locations
 - **Main Server**: `src/index.ts` - Complete MCP server implementation
+- **Core Architecture**: `src/core/` - Foundational classes (client, types, validation, errors)
+- **Feature Modules**: `src/modules/` - Domain-specific functionality (domains, packages)
+- **Testing**: `tests/` - Jest test suites with unit tests and helper mocks
+- **Scripts**: `scripts/` - Development and automation utilities
 - **API Documentation**: `/archive/gitignor_ref_folder/20i_api_doc.apib` - Official 20i API reference
-- **Automation Scripts**: `/automation/` - 54 comprehensive automation scripts
-- **Testing Infrastructure**: `/testing-files/` - Test results and validation tools
+- **Documentation**: `docs/` - Project documentation and implementation guides
 - **Coverage Analysis**: `scripts/check-api-coverage.sh` - API coverage tracking
 
 ## Configuration Files
@@ -77,10 +86,12 @@ const response = await this.apiClient.get(`/endpoint/${id}`, {
 ## Development Guidelines
 
 ### Adding New Tools
-1. Follow existing tool definition patterns in the tools array
-2. Implement handler in the CallTool switch statement
-3. Use consistent error handling with McpError
-4. Update API coverage tracking if implementing new endpoints
+1. **Modular Approach**: Consider adding to appropriate module in `src/modules/` or core functionality
+2. **Tool Definition**: Follow existing patterns in the tools array with proper input schema
+3. **Handler Implementation**: Add to CallTool switch statement with comprehensive error handling
+4. **Validation**: Use validation utilities from `src/core/validation.ts` for input sanitization
+5. **Testing**: Add unit tests in `tests/unit/` with appropriate mocks
+6. **Documentation**: Update API coverage tracking if implementing new endpoints
 
 ### Error Handling Standards
 - Use try-catch blocks with detailed error messages
@@ -89,10 +100,13 @@ const response = await this.apiClient.get(`/endpoint/${id}`, {
 - Handle network failures gracefully
 
 ### Testing Approach
-- Use existing testing infrastructure in `/testing-files/`
-- Validate API responses against expected formats
-- Test authentication scenarios with different credential types
-- Verify error handling paths
+- **Jest Configuration**: ESM preset with TypeScript support in `jest.config.js`
+- **Test Structure**: Unit tests in `tests/unit/`, shared helpers in `tests/helpers/`
+- **Mock Infrastructure**: Use `tests/helpers/mockClient.ts` for API client mocking
+- **Test Commands**: `npm test` for single run, `npm run test:watch` for development
+- **Coverage**: `npm run test:coverage` generates comprehensive coverage reports
+- **Validation Testing**: Test input validation and error handling paths
+- **API Integration**: Validate responses against expected formats with real API calls in `/testing-files/`
 
 ## Notable Features
 - **Comprehensive WordPress Management**: 15 tools for installations, plugins, themes, staging
@@ -114,3 +128,9 @@ The project includes extensive automation capabilities through 54 scripts in `/a
 - Validate all user inputs before API calls
 - Implement proper error handling to avoid information leakage
 - Follow the existing base64 encoding pattern for API tokens
+
+## Development Environment Setup
+- **Node.js**: Version 18+ required for ES modules and modern features
+- **TypeScript**: Strict mode enabled with ES2022 target
+- **Jest**: Configured for ESM with TypeScript preset
+- **Environment Variables**: Required for API authentication (see Authentication & Security section)

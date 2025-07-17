@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![20i API](https://img.shields.io/badge/20i-API%20Integration-blue)](https://20i.com)
+[![Security: MseeP.ai](https://mseep.net/pr/cbrown35-20i-mcp-badge.png)](https://mseep.ai/app/cbrown35-20i-mcp)
 
 > **The first and only Model Context Protocol (MCP) server for 20i web hosting services** 
 
