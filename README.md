@@ -9,11 +9,13 @@
 
 Transform your 20i hosting management experience with AI-powered administration. This groundbreaking MCP server enables natural language interactions with your 20i hosting infrastructure through Claude, ChatGPT, and other AI assistants.
 
-## 🆕 What's New - v1.6.0 COMPREHENSIVE RELEASE
+## 🆕 What's New - v1.7.1 PUBLIC REPOSITORY RELEASE
 
-**🎉 MILESTONE RELEASE: Near-Complete API Coverage Achieved!**
+**🎉 PUBLIC REPOSITORY OPTIMIZED: Clean, Secure, Community-Ready!**
 
-- **🏆 COMPREHENSIVE COVERAGE**: 303 specialized tools covering 90.0% of 20i API functionality (303/335 endpoints)
+- **🔒 SECURITY FIRST**: Complete separation of public code and private credentials
+- **🏆 COMPREHENSIVE COVERAGE**: 303 specialized tools covering 90.4% of 20i API functionality (303/335 endpoints)
+- **📚 ENHANCED DOCUMENTATION**: Clear contribution guidelines and security policies
 - **🖥️ VPS Management**: Complete server infrastructure control (22 endpoints)
 - **🗄️ Database Services**: Full MSSQL management with backup/restore (16 tools)
 - **🔒 SSL Automation**: Complete certificate lifecycle management (11 tools)
@@ -39,18 +41,30 @@ The MCP server now supports **303 comprehensive tools** including:
 ## 🎯 Why This Matters
 
 **For 20i Customers:**
+- **🚀 Automated Website Deployment**: Deploy complete WordPress websites in under 30 minutes
 - Manage hosting services through natural language conversations
 - Reduce complex API interactions to simple chat commands
 - Streamline domain, hosting, and DNS management workflows
 - Enable non-technical users to perform advanced hosting operations
 
 **For 20i:**
+- **🏆 Industry First**: First hosting provider with complete automated website deployment
 - First-to-market AI integration in the hosting industry
 - Differentiate from competitors with cutting-edge AI capabilities
 - Reduce support burden through self-service AI assistance
 - Attract tech-savvy customers and developers
 
 ## ✨ Features
+
+### 🚀 **Automated Website Deployment** (NEW!)
+- **Complete WordPress Automation**: Deploy professional websites in 15-30 minutes
+- **Custom Theme Support**: Upload and activate custom themes via SSH
+- **Content Creation**: Automated professional content and page structure
+- **SSL & DNS**: Automatic SSL certificate and DNS configuration
+- **Multiple Deployment Types**: Basic WordPress, themed business sites, developer environments
+- **Robust Error Handling**: Multiple fallback strategies for 95%+ success rate
+- **Cache Management**: CDN and WordPress cache handling
+- **Production Ready**: Tested deployment scripts with comprehensive troubleshooting
 
 ### 🏢 **Reseller Account Management**
 - Real-time account overview and statistics
@@ -165,6 +179,10 @@ The MCP server now supports **303 comprehensive tools** including:
 - 20i Reseller Account with API access
 - Claude Desktop, VS Code with Claude, or other MCP-compatible AI assistant
 
+### Security Notice
+
+This is a **public repository** containing no credentials or sensitive data. All authentication must be provided via environment variables. See [SECURITY.md](./SECURITY.md) for details.
+
 ### Installation
 
 1. **Clone the repository:**
@@ -207,7 +225,32 @@ The MCP server now supports **303 comprehensive tools** including:
 
 ## 💬 Usage Examples
 
-### 🌟 Power User Workflows (New!)
+### 🚀 Automated Website Deployment (NEW!)
+
+**Complete WordPress Deployment**
+```bash
+# Deploy a basic WordPress website
+node scripts/deployment/production/deploy-wordpress-basic.js \
+  --domain "mybusiness.yourdomain.com" \
+  --title "My Business" \
+  --tagline "Professional Services"
+```
+
+**Themed Business Website**
+```bash
+# Deploy with custom theme and professional content
+node scripts/deployment/production/deploy-wordpress-themed.js \
+  --domain "company.yourdomain.com" \
+  --theme-path "/path/to/business-theme" \
+  --business-type "consulting"
+```
+
+**Natural Language Deployment**
+```
+"Deploy a complete WordPress website for example.yourdomain.com with a professional business theme, SSL certificate, and basic pages for my consulting company"
+```
+
+### 🌟 Power User Workflows
 
 **Complete WordPress Site Setup**
 ```

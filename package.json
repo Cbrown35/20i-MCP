@@ -1,7 +1,7 @@
 {
   "name": "20i-mcp-server",
-  "version": "1.6.0",
-  "description": "The first and only Model Context Protocol (MCP) server for 20i web hosting services. Transform your hosting management with AI-powered automation through Claude, ChatGPT, and other AI assistants. 341 comprehensive tools with extensive API coverage.",
+  "version": "1.7.1",
+  "description": "The first and only Model Context Protocol (MCP) server for 20i web hosting services. Transform your hosting management with AI-powered automation through Claude, ChatGPT, and other AI assistants. 303 comprehensive tools covering 90.4% of the 20i API.",
   "main": "build/index.js",
   "type": "module",
   "scripts": {
@@ -46,8 +46,8 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
-    "axios": "^1.6.0",
-    "basic-ftp": "^5.0.5",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.11.0",
     "dotenv": "^17.1.0",
     "node-html-parser": "^7.0.1",
     "node-ssh": "^13.2.1",
@@ -56,6 +56,9 @@
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@types/node": "^20.0.0",
+    "archiver": "^7.0.1",
+    "basic-ftp": "^5.0.5",
+    "form-data": "^4.0.4",
     "jest": "^29.5.0",
     "ts-jest": "^29.1.0",
     "tsx": "^4.0.0",
