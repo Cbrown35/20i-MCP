@@ -5,6 +5,10 @@ import {
   validatePositiveNumber, 
   validateOptional 
 } from '../core/validation.js';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+
+const execAsync = promisify(exec);
 
 export class PackagesModule {
   constructor(private client: TwentyIClient) {}
@@ -109,6 +113,97 @@ export class PackagesModule {
 
   async removeStackUserFromPackage(packageId: string, stackUser: string) {
     return await this.client.delete(`/package/${packageId}/stackUsers/${stackUser}`);
+  }
+
+  /**
+   * Complete website deployment automation
+   */
+  async deployWebsiteComplete(options: {
+    domain: string;
+    title?: string;
+    tagline?: string;
+    theme_path?: string;
+    business_type?: string;
+    deployment_type?: 'basic' | 'themed' | 'developer';
+  }) {
+    try {
+      const deploymentType = options.deployment_type || 'basic';
+      const projectRoot = process.cwd();
+      
+      // Determine which production script to use
+      let scriptPath: string;
+      let scriptArgs: string[] = [];
+      
+      switch (deploymentType) {
+        case 'themed':
+          scriptPath = `${projectRoot}/scripts/deployment/production/deploy-wordpress-themed.js`;
+          scriptArgs = [
+            '--domain', options.domain,
+            '--title', options.title || 'Business Website',
+            '--business-type', options.business_type || 'business'
+          ];
+          if (options.theme_path) {
+            scriptArgs.push('--theme-path', options.theme_path);
+          }
+          break;
+          
+        case 'developer':
+          scriptPath = `${projectRoot}/scripts/deployment/production/deploy-wordpress-basic.js`;
+          scriptArgs = [
+            '--domain', options.domain,
+            '--title', options.title || 'Development Site',
+            '--tagline', options.tagline || 'Development Environment',
+            '--dev-mode', 'true'
+          ];
+          break;
+          
+        default: // basic
+          scriptPath = `${projectRoot}/scripts/deployment/production/deploy-wordpress-basic.js`;
+          scriptArgs = [
+            '--domain', options.domain,
+            '--title', options.title || 'Professional Website',
+            '--tagline', options.tagline || 'Welcome to our website'
+          ];
+          break;
+      }
+      
+      // Execute the deployment script
+      const command = `node "${scriptPath}" ${scriptArgs.map(arg => `"${arg}"`).join(' ')}`;
+      
+      const { stdout, stderr } = await execAsync(command, {
+        cwd: projectRoot,
+        env: {
+          ...process.env,
+          // Ensure environment variables are passed through
+          TWENTYI_API_KEY: process.env.TWENTYI_API_KEY,
+          TWENTYI_OAUTH_KEY: process.env.TWENTYI_OAUTH_KEY,
+          TWENTYI_COMBINED_KEY: process.env.TWENTYI_COMBINED_KEY
+        },
+        timeout: 30 * 60 * 1000, // 30 minutes timeout
+        maxBuffer: 1024 * 1024 * 10 // 10MB buffer for output
+      });
+      
+      return {
+        success: true,
+        deployment_type: deploymentType,
+        domain: options.domain,
+        script_used: scriptPath,
+        stdout: stdout,
+        stderr: stderr,
+        message: `Successfully deployed ${deploymentType} WordPress website to ${options.domain}`
+      };
+      
+    } catch (error: any) {
+      return {
+        success: false,
+        deployment_type: options.deployment_type || 'basic',
+        domain: options.domain,
+        error: error.message || 'Unknown deployment error',
+        stderr: error.stderr || '',
+        stdout: error.stdout || '',
+        message: `Failed to deploy website to ${options.domain}: ${error.message}`
+      };
+    }
   }
 
   /**
@@ -351,6 +446,40 @@ export class PackagesModule {
         const stackUser = validateString(args.stack_user, 'stack_user');
         
         const result = await this.removeStackUserFromPackage(packageId, stackUser);
+        return {
+          content: [{
+            type: 'text',
+            text: JSON.stringify(result, null, 2),
+          }],
+        };
+      },
+
+      deploy_website_complete: async (args) => {
+        const domain = validateString(args.domain, 'domain');
+        const title = validateOptional(args.title, (val) => validateString(val, 'title'), 'title');
+        const tagline = validateOptional(args.tagline, (val) => validateString(val, 'tagline'), 'tagline');
+        const themePath = validateOptional(args.theme_path, (val) => validateString(val, 'theme_path'), 'theme_path');
+        const businessType = validateOptional(args.business_type, (val) => validateString(val, 'business_type'), 'business_type');
+        const deploymentType = validateOptional(
+          args.deployment_type, 
+          (val) => {
+            if (!['basic', 'themed', 'developer'].includes(val)) {
+              throw new Error('deployment_type must be basic, themed, or developer');
+            }
+            return val;
+          }, 
+          'deployment_type'
+        ) as 'basic' | 'themed' | 'developer' | undefined;
+        
+        const result = await this.deployWebsiteComplete({
+          domain,
+          title,
+          tagline,
+          theme_path: themePath,
+          business_type: businessType,
+          deployment_type: deploymentType
+        });
+        
         return {
           content: [{
             type: 'text',
@@ -663,6 +792,41 @@ export class PackagesModule {
             },
           },
           required: ['package_id', 'stack_user'],
+        },
+      },
+      {
+        name: 'deploy_website_complete',
+        description: 'Deploy a complete WordPress website with automatic setup, theme installation, content creation, and SSL configuration. This is the unified deployment tool that handles end-to-end website creation.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            domain: {
+              type: 'string',
+              description: 'Domain or subdomain for the website (e.g., "mybusiness.yourdomain.com")',
+            },
+            title: {
+              type: 'string',
+              description: 'Website title (optional, defaults based on deployment type)',
+            },
+            tagline: {
+              type: 'string',
+              description: 'Website tagline/description (optional)',
+            },
+            theme_path: {
+              type: 'string',
+              description: 'Path to custom theme zip file (only for themed deployments)',
+            },
+            business_type: {
+              type: 'string',
+              description: 'Type of business for content optimization (e.g., "consulting", "retail", "restaurant")',
+            },
+            deployment_type: {
+              type: 'string',
+              enum: ['basic', 'themed', 'developer'],
+              description: 'Type of deployment: basic (clean WordPress), themed (with custom theme), developer (development environment)',
+            },
+          },
+          required: ['domain'],
         },
       },
     ];
