@@ -33,6 +33,7 @@ automation-*.js
 
 # Reference materials (should not be committed)
 gitignor_ref_folder/
+20i_api_doc.apib
 
 # IDE files
 .vscode/
@@ -47,3 +48,18 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# Organized archive directories
+/workspace/
+/archive/deployment/
+/archive/testing-files/
+/archive/exports/
+/archive/documentation/
+/archive/temp-files/
+
+# Additional file patterns to ignore
+*.php
+*-deployment.js
+*-emergency-*.js
+upload-*.js
+cookies.txt
