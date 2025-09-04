@@ -1,125 +1,97 @@
 # Changelog
 
-All notable changes to the 20i MCP Server will be documented in this file.
+All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.0] - 2025-07-06
-
-### 🎉 MILESTONE RELEASE: Comprehensive API Coverage
-
-This major release achieves comprehensive coverage of the 20i API with **341 specialized tools**, representing one of the most complete hosting automation solutions available.
+## [1.7.1] - 2025-01-04
 
 ### Added
-- **🖥️ VPS Management** (22 tools): Complete server infrastructure control
-  - VPS lifecycle management (start/stop/reboot/rebuild)
-  - VNC console access for troubleshooting
-  - Resource scaling and disk management
-  - Network configuration and reverse DNS
-  - Operating system management and updates
-  - Managed VPS profile configuration
+- SECURITY.md policy document for public repository guidelines
+- GitHub Actions workflows for CI/CD
+- Clear separation between public code and private implementations
+- Enhanced security documentation
 
-- **🗄️ Database Services** (16 tools): Full MSSQL management
-  - Database creation, deletion, and renewal
-  - User management and permissions
-  - Database assignment and allocation
-  - Backup and restore automation
-  - Snapshot management with point-in-time recovery
+### Changed
+- Updated README.md with correct tool count (303 tools)
+- Corrected API coverage percentage to 90.4%
+- Reorganized project structure for public repository
+- Moved all deployment scripts to gitignored archive directory
 
-- **🔒 SSL Certificate Management** (11 tools): Complete security automation
-  - Certificate ordering and renewal
-  - Free SSL (Let's Encrypt) integration
-  - External certificate installation
-  - SSL approval email management
-  - Force HTTPS redirect control
-  - Certificate status monitoring
+### Security
+- Complete removal of hardcoded credentials
+- All authentication via environment variables
+- Clean public repository structure
 
-- **📦 Package Administration** (9 tools): Service provisioning control
-  - Package activation/deactivation automation
-  - Resource allowance management
-  - Package splitting and domain migration
-  - Cloning and deployment operations
-  - Comprehensive package lifecycle management
-
-- **📧 Advanced Email Management** (15 tools): Premium email services
-  - Email domain configuration and aliases
-  - Premium mailbox features and storage management
-  - Email analytics and performance monitoring
-  - Advanced spam filtering with custom rules
-  - Email reputation score monitoring
-  - GDPR compliance settings
-
-- **🛡️ Security & Monitoring** (10 tools): Enhanced protection
-  - Advanced malware scanning with configuration
-  - Security policy status and compliance
-  - Password policy management and enforcement
-  - SSH key rotation automation
-  - Performance monitoring and metrics
-  - Audit trail reporting
-
-- **🌐 DNS & Domain Advanced** (20 tools): Enterprise DNS capabilities
-  - DNSSEC configuration and security
-  - Virtual nameserver management
-  - Advanced DNS record types and bulk operations
-  - DNS analytics and performance monitoring
-  - Third-party integration (Google Apps, Office365)
-  - DNS backup/restore and template management
-
-- **💾 Backup & Recovery** (10 tools): Comprehensive data protection
-  - Database snapshot creation and management
-  - Mailbox backup automation and snapshots
-  - Web files backup and disaster recovery
-  - Point-in-time restore capabilities
-  - Backup scheduling and retention policies
-
-- **⚙️ Platform Tools** (12 tools): Windows/IIS and automation
-  - Windows IIS application pool management
-  - One-click application management
-  - Software reinstallation tools
-  - SEO sitemap generation
-  - Scheduled task automation
-  - Performance optimization tools
-
-### Improved
-- **Enhanced Error Handling**: Comprehensive McpError integration across all tools
-- **Better Input Validation**: Complete schema validation for all tool parameters
-- **Optimized Performance**: Streamlined API client implementation
-- **Documentation**: Updated API.md with comprehensive tool documentation
-
-### Technical Details
-- Total tools implemented: **341**
-- API endpoint coverage: **Comprehensive** (covers all major functionality)
-- TypeScript compilation: ✅ Clean build
-- Error handling: ✅ Complete McpError integration
-- Input validation: ✅ Full schema validation
-
-## [1.5.0] - 2025-07-04
+## [1.7.0] - 2024-12-30
 
 ### Added
-- Advanced Security Management (13 tools)
-- Backup/Restore Management (11 tools)
-- CDN Management (15 tools)
-- WordPress Management (15 tools)
-- Domain Registration with contact management
+- Automated WordPress deployment capabilities
+- 303 comprehensive tools covering 90.4% of 20i API
+- VPS Management (22 endpoints)
+- Database Services with MSSQL support (16 tools)
+- SSL Automation (11 tools)
+- Package Administration (9 tools)
+- Advanced Email with DKIM/DMARC (15 tools)
+- Security & Monitoring (10 tools)
+- DNS & Domain Advanced features (20 tools)
+- Backup & Recovery (10 tools)
+- Platform Tools for Windows/IIS (12 tools)
 
-### Improved
-- JSON parsing error handling
-- Zero-balance account support
-- UUID string handling for edge cases
-
-## [1.4.0] - 2025-07-03
+## [1.6.0] - 2024-12-25
 
 ### Added
-- Initial MCP server implementation
-- Basic hosting package management
-- Domain and DNS management
-- Email account management
-- MySQL database operations
-- FTP user management
+- Comprehensive API coverage achievement
+- Multiple deployment strategies
+- SSH automation capabilities
+- MySQL Grant API implementation
+- One-Click installation support
 
-### Technical
-- TypeScript implementation
-- Axios-based API client
-- Environment variable configuration
-- Comprehensive error handling
+## [1.5.0] - 2024-12-20
+
+### Added
+- Phase 4 Implementation
+- API Coverage increased to 50.5% (137/271 endpoints)
+- WordPress management tools
+- CDN management capabilities
+- Enhanced security features
+
+## [1.4.0] - 2024-12-15
+
+### Added
+- Database management tools
+- Email service automation
+- DNS management enhancements
+- Backup and restore capabilities
+
+## [1.3.0] - 2024-12-10
+
+### Added
+- Cloud server operations
+- VPS management tools
+- SSL certificate automation
+- Domain management features
+
+## [1.2.0] - 2024-12-05
+
+### Added
+- Hosting package administration
+- Subdomain management
+- PHP version control
+- Application installation tools
+
+## [1.1.0] - 2024-12-01
+
+### Added
+- Core MCP server implementation
+- Basic 20i API integration
+- Authentication system
+- Error handling framework
+
+## [1.0.0] - 2024-11-25
+
+### Added
+- Initial release
+- Basic MCP protocol support
+- Foundation for 20i API integration

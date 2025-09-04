@@ -77,13 +77,32 @@ Thank you for your interest in contributing to the 20i MCP Server! This project 
 
 ```
 src/
-├── index.ts          # Main MCP server implementation
-├── types/            # TypeScript type definitions
+├── index.ts          # Main MCP server implementation (303 tools)
+├── core/             # Core functionality
+│   ├── client.ts     # API client implementation
+│   ├── types.ts      # TypeScript type definitions
+│   ├── validation.ts # Input validation utilities
+│   └── errors.ts     # Error handling
+├── modules/          # Feature modules
+│   ├── domains.ts    # Domain management
+│   └── packages.ts   # Package management
 └── utils/            # Utility functions
 
-docs/                 # Additional documentation
 tests/                # Test files
+docs/                 # Additional documentation
+archive/              # Gitignored - deployment scripts
+workspace/            # Gitignored - working files
 ```
+
+## Security Guidelines
+
+This is a **public repository**. Please follow these security practices:
+
+1. **Never commit credentials** - Use environment variables only
+2. **No customer data** - Keep all examples generic
+3. **Review before committing** - Check for sensitive information
+4. **Use .gitignore** - Ensure private files stay private
+5. **Report vulnerabilities** - Use GitHub Security Advisories
 
 ## MCP Tool Development
 
