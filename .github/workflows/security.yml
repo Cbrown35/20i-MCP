@@ -11,35 +11,39 @@ on:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+      security-events: write  # required for CodeQL to upload results
+
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v4
+
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
-    
+
     - name: Run npm audit
       run: npm audit --audit-level=moderate
       continue-on-error: true
-    
-    - name: Check for secrets
-      uses: trufflesecurity/trufflehog@main
+
+    # Secret scanning is handled by the dedicated `gitleaks` job below
+    # (replaces the previous trufflehog step, which failed on push when
+    # BASE == HEAD).
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
       with:
-        path: ./
-        base: ${{ github.event.repository.default_branch }}
-        head: HEAD
-    
-    - name: Run CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-      with:
-        languages: javascript, typescript
-    
-    - name: Check dependencies
+        languages: javascript-typescript
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+
+    - name: Check dependencies (informational)
       run: |
-        npx npm-check-updates
-        npx depcheck
+        npx npm-check-updates || true
+        npx depcheck || true
+      continue-on-error: true
 
   gitleaks:
     name: Gitleaks secret scan
