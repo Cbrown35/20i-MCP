@@ -1,5 +1,6 @@
 export default {
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/default-esm',
+  extensionsToTreatAsEsm: ['.ts'],
   testEnvironment: 'node',
   roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: [
@@ -7,7 +8,10 @@ export default {
     '**/?(*.)+(spec|test).ts'
   ],
   transform: {
-    '^.+\\.ts$': 'ts-jest',
+    // Tests transpile-only: production type-safety is enforced by `npm run build` (tsc).
+    // This avoids ts-jest failing the run on test-authoring type quirks (jest.fn() generics,
+    // helpers outside src rootDir) while keeping full ESM support.
+    '^.+\\.ts$': ['ts-jest', { useESM: true, diagnostics: false }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {

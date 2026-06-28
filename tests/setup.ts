@@ -1,4 +1,5 @@
 // Global test setup
+import { jest } from '@jest/globals';
 import { config } from 'dotenv';
 
 // Load environment variables for testing

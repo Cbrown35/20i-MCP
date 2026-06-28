@@ -1,4 +1,5 @@
 // Unit tests for the domains module
+import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 import { DomainsModule, createDomainsModule } from '../../src/modules/domains';
 import { TwentyIClient } from '../../src/core/client';
 import { createMockTwentyIClient, createMockAxiosResponse } from '../helpers/mockClient';
