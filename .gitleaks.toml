@@ -1,0 +1,44 @@
+# gitleaks configuration for 20i-MCP
+# Detects hardcoded secrets (esp. 20i API/OAuth/Combined keys) before they are committed.
+# Used by the pre-commit hook in scripts/hooks/pre-commit and in CI.
+title = "20i-MCP gitleaks config"
+
+[extend]
+useDefault = true
+
+# Custom rule: 20i keys are short hex/base64 literals that the default
+# high-entropy rules miss (the historically leaked key was only 17 hex chars).
+[[rules]]
+id = "twentyi-hardcoded-key"
+description = "Hardcoded 20i API/OAuth/Combined key literal"
+# Value class is deliberately [A-Za-z0-9+/=] (NO _ or -): real 20i keys are
+# continuous hex/base64, while doc placeholders ("your_combined_key",
+# "your-api-key-here") contain separators and so never form a 12+ run.
+regex = '''(?i)(twentyi[_-]?(api|oauth|combined)[_-]?key|\bapi[_-]?key|\boauth[_-]?key|\bcombined[_-]?key)\s*[:=]\s*['"][A-Za-z0-9+/=]{12,}['"]'''
+keywords = ["key"]
+
+  [rules.allowlist]
+  description = "Ignore env lookups, documented placeholders, and test fixtures"
+  regexes = [
+    '''process\.env''',
+    '''your_[a-z_]*_here''',
+    '''(?i)(test|example|placeholder|dummy|sample|redacted|changeme|xxxx|<your)''',
+  ]
+
+# Global allowlist applied to every rule.
+[allowlist]
+description = "Repo-wide allowlist"
+paths = [
+  '''package-lock\.json''',
+  '''(^|/)\.env$''',
+  '''(^|/)\.env\.template$''',
+  '''(^|/)\.gitleaks\.toml$''',
+]
+regexes = [
+  '''REDACTED_LEAKED_20I_(API|OAUTH)_KEY''',
+  '''(?i)your_(api|oauth|combined|general)[a-z_]*_(key|here)''',
+  '''test-(api|oauth|combined)-key''',
+  '''(?i)YOUR_GITHUB_TOKEN''',
+  '''(?i)token YOUR_''',
+  '''(?i)retrieved_from_20i_api''',
+]
